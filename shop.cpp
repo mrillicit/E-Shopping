@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 class itemEntry {
 public:
        float unit_price;
@@ -74,7 +72,10 @@ void Store::updateItem(char itemName[], int total, float price)
 int main() {
        Store sto;
        system("cls");
-       char option='f', name[30], company[30], quantity [10], unit_price[30];
+       char cond='f',option='f', name[30], company[30], quantity [10], unit_price[30];
+       cout<<"Press 1 for Buyer\nPress 2 for Seller\n";
+       cin>>cond;
+       if (cond == '2'){
        while (option != 'e') {
               cout << "\n----------->Enter your choice:<------------\n";
               cout << "I for insert\n";
@@ -83,27 +84,30 @@ int main() {
               cout << "U for update\n";
               cout << "E for exit\n";
 
-              cin.getline(name, 80);
+              cin>>name;
               option = name[0];
 
               switch (option) {
 
               case 'i':
-                     cout << "Enter Name of Item, Company and no of quantity ,Unit price  per line:\n";
-                     cin.getline(name, 80);
-                     cin.getline(company, 80);
-                     cin.getline(quantity , 80);
-                     cin.getline(unit_price, 80);
+                     cout << "Enter Name of Item\n"; 
+                     cin>>name;
+                      cout << "Enter Name of Company\n";
+                     cin>>company;
+                      cout << "Enter Quantity\n";
+                     cin>>quantity;
+                      cout << "Enter Unit Price\n";
+                     cin>>unit_price;
                      sto.insertItem(name, company, atoi(quantity ), atof(unit_price));
                      break;
               case 'd':
                      cout << "Enter Name of Item:\n";
-                     cin.getline(name, 80);
+                     cin>>name;
                      sto.deleteItem(name);
                      break;
               case 's':
                      cout << "Enter Name of Item:\n";
-                     cin.getline(name, 80);
+                     cin>>name;
                      itemEntry *test;
                      test = sto.search(name);
                      if (test != NULL) {
@@ -115,16 +119,16 @@ int main() {
                      break;
               case 'u':
                      cout << "Enter details for update...\n";
-                     cout << "Enter name: "; cin.getline(name, 80);
-                     cout << "Enter total new entry: "; cin.getline(quantity , 80);
-                     cout << "Enter new price: "; cin.getline(unit_price, 80);
+                     cout << "Enter name: "; cin>>name;
+                     cout << "Enter total new entry: "; cin>>quantity;
+                     cout << "Enter new price: "; cin>>unit_price;
                      sto.updateItem(name, atoi(quantity ), atof(unit_price));
                      break;
                      /*        case 'e':
                      exit(0);
                      break;*/
               }
-       }
+       }}
        return 0;
 
 }
