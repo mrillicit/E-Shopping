@@ -10,7 +10,7 @@ using namespace std;
 class itemEntry {
 public:
        float unit_price;
-       int copies;
+       int quantity ;
        char name[30];
        char company[30];
 };
@@ -32,7 +32,7 @@ public:
 void Store::insertItem(char itemName[], char company[], int c, float p) {
        strcpy(database[numItem].name, itemName);
        strcpy(database[numItem].company, company);
-       database[numItem].copies = c;
+       database[numItem].quantity  = c;
        database[numItem].unit_price = p;
        cout << "Item Inserted Successfully.\n";
        ++numItem;
@@ -42,7 +42,7 @@ void Store::deleteItem(char itemName[]) {
        int i;
        for (i = 0; i < numItem; i++) {
               if (strcmp(itemName, database[i].name) == 0) {
-                     database[i].copies--;
+                     database[i].quantity --;
                      cout << "Item Deleted Successfully.\n";
                      return;
               }
@@ -67,14 +67,14 @@ void Store::updateItem(char itemName[], int total, float price)
               cout << "Item not found.\n";
               return;
        }
-       item->copies += total;
+       item->quantity  += total;
        item->unit_price = price;
 }
 
 int main() {
        Store sto;
        system("cls");
-       char option='f', name[30], company[30], copies[10], unit_price[30];
+       char option='f', name[30], company[30], quantity [10], unit_price[30];
        while (option != 'e') {
               cout << "\n----------->Enter your choice:<------------\n";
               cout << "I for insert\n";
@@ -89,12 +89,12 @@ int main() {
               switch (option) {
 
               case 'i':
-                     cout << "Enter Name of Item, Company and no of copies,Unit price  per line:\n";
+                     cout << "Enter Name of Item, Company and no of quantity ,Unit price  per line:\n";
                      cin.getline(name, 80);
                      cin.getline(company, 80);
-                     cin.getline(copies, 80);
+                     cin.getline(quantity , 80);
                      cin.getline(unit_price, 80);
-                     sto.insertItem(name, company, atoi(copies), atof(unit_price));
+                     sto.insertItem(name, company, atoi(quantity ), atof(unit_price));
                      break;
               case 'd':
                      cout << "Enter Name of Item:\n";
@@ -108,7 +108,7 @@ int main() {
                      test = sto.search(name);
                      if (test != NULL) {
                            cout << "---------------->Searching Result<---------------------" << endl;
-                           cout << "Item found\n" << "Name of the Item:" << test->name << endl << "Company name:" << test->company << endl << "Number of copies available:" << test->copies << endl << "Unit price:" << test->unit_price << endl;
+                           cout << "Item found\n" << "Name of the Item:" << test->name << endl << "Company name:" << test->company << endl << "Number of quantity  available:" << test->quantity  << endl << "Unit price:" << test->unit_price << endl;
                      }
                      else
                            cout << "Item not found\n";
@@ -116,9 +116,9 @@ int main() {
               case 'u':
                      cout << "Enter details for update...\n";
                      cout << "Enter name: "; cin.getline(name, 80);
-                     cout << "Enter total new entry: "; cin.getline(copies, 80);
+                     cout << "Enter total new entry: "; cin.getline(quantity , 80);
                      cout << "Enter new price: "; cin.getline(unit_price, 80);
-                     sto.updateItem(name, atoi(copies), atof(unit_price));
+                     sto.updateItem(name, atoi(quantity ), atof(unit_price));
                      break;
                      /*        case 'e':
                      exit(0);
