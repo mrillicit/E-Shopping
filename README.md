@@ -13,3 +13,15 @@
 | PE 54 | Muhammad Arab |
 
 
+## TODO ( For Buyer)
+- [x] Add product 
+- [x] Search product 
+- [x] Delete Product 
+- [x] Update Product 
+
+## TODO ( For Seller)
+- [ ] Show List & price of products
+- [ ] Select Items
+- [ ] Final Amount 
+- [ ] Delete Product
+- [ ] Search Product
