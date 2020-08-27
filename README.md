@@ -20,8 +20,8 @@
 - [x] Update Product 
 
 ## TODO ( For Buyer)
-- [ ] Show List & price of products
-- [ ] Select Items
-- [ ] Final Amount 
-- [ ] Delete Product
-- [ ] Search Product
+- [x] Show List & price of products
+- [x] Select Items
+- [x] Final Amount 
+- [x] Delete Product
+- [x] Search Product
