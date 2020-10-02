@@ -28,3 +28,10 @@
 - [x] Final Amount 
 - [x] Delete Product
 - [x] Search Product
+
+
+#Concepts Used :-
+-##Exception Handling
+-##File Handling 
+-##Constructors
+-##Other OOPs Concepts 
